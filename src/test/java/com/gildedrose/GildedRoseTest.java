@@ -10,9 +10,9 @@ class GildedRoseTest {
 
     @Test
     void zeroQualityTest() {
-        Item[] items = new Item[] {
-                new Item("Elixir of the Mongoose", 5, 0),
-                new Item("Elixir of the Mongoose", 15, 0), //
+        ItemClass[] items = new ItemClass[] {
+                new GeneralItem("Elixir of the Mongoose", 5, 0),
+                new GeneralItem("Elixir of the Mongoose", 15, 0), //
 
         };
         GildedRose app = new GildedRose(items);
@@ -22,9 +22,9 @@ class GildedRoseTest {
     }
     @Test
     void maxQualityTest() {
-        Item[] items = new Item[] {
-                new Item("Aged Brie", 2, 50),
-                new Item("Backstage passes to a TAFKAL80ETC concert", 10, 50),
+        ItemClass[] items = new ItemClass[] {
+                new AgedBrie("Aged Brie", 2, 50),
+                new Backstage("Backstage passes to a TAFKAL80ETC concert", 10, 50),
 
 
         };
@@ -36,8 +36,8 @@ class GildedRoseTest {
 
     @Test
     void negativeSellInAgedTest() {
-        Item[] items = new Item[] {
-                new Item("Aged Brie", -1, 40),
+        ItemClass[] items = new ItemClass[] {
+                new AgedBrie("Aged Brie", -1, 40),
         };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
@@ -47,8 +47,8 @@ class GildedRoseTest {
     }
     @Test
     void positiveSellInAgedTest() {
-        Item[] items = new Item[] {
-                new Item("Aged Brie", 1, 40),
+        ItemClass[] items = new ItemClass[] {
+                new AgedBrie("Aged Brie", 1, 40),
         };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
@@ -57,8 +57,8 @@ class GildedRoseTest {
     }
     @Test
     void negativeSellInTest() {
-        Item[] items = new Item[] {
-                new Item("Elixir of the Mongoose", -1, 40),
+        ItemClass[] items = new ItemClass[] {
+                new GeneralItem("Elixir of the Mongoose", -1, 40),
         };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
@@ -67,8 +67,8 @@ class GildedRoseTest {
     }
     @Test
     void sulfurasTest() {
-        Item[] items = new Item[] {
-                new Item("Sulfuras, Hand of Ragnaros", -1, 40),
+        ItemClass[] items = new ItemClass[] {
+                new Sulfuras("Sulfuras, Hand of Ragnaros", -1, 40),
         };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
@@ -77,8 +77,8 @@ class GildedRoseTest {
     }
     @Test
     void backstageLessThan11Test() {
-        Item[] items = new Item[] {
-                new Item("Backstage passes to a TAFKAL80ETC concert", 10, 40),
+        ItemClass[] items = new ItemClass[] {
+                new Backstage("Backstage passes to a TAFKAL80ETC concert", 10, 40),
         };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
@@ -88,8 +88,8 @@ class GildedRoseTest {
 
     @Test
     void backstageLessThan6Test() {
-        Item[] items = new Item[] {
-                new Item("Backstage passes to a TAFKAL80ETC concert", 4, 40),
+        ItemClass[] items = new ItemClass[] {
+                new Backstage("Backstage passes to a TAFKAL80ETC concert", 4, 40),
         };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
@@ -100,8 +100,8 @@ class GildedRoseTest {
 
     @Test
     void backstageNegativeSellInTest() {
-        Item[] items = new Item[] {
-                new Item("Backstage passes to a TAFKAL80ETC concert", 0, 40),
+        ItemClass[] items = new ItemClass[] {
+                new Backstage("Backstage passes to a TAFKAL80ETC concert", 0, 40),
         };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
