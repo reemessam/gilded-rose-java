@@ -109,4 +109,47 @@ class GildedRoseTest {
         Arrays.stream(app.items).forEach( x ->assertEquals(-1, x.sellIn));
     }
 
+
+    @Test
+    void ConjuredTest() {
+        ItemClass[] items = new ItemClass[] {
+                new Conjured("Conjured", 0, 40),
+        };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        Arrays.stream(app.items).forEach( x ->assertEquals(36, x.quality));
+        Arrays.stream(app.items).forEach( x ->assertEquals(-1, x.sellIn));
+    }
+    @Test
+    void ConjuredUpdateQualityBy1Test() {
+        ItemClass[] items = new ItemClass[] {
+                new Conjured("Conjured", 0, 1),
+        };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        Arrays.stream(app.items).forEach( x ->assertEquals(0, x.quality));
+        Arrays.stream(app.items).forEach( x ->assertEquals(-1, x.sellIn));
+    }
+
+    @Test
+    void ConjuredUpdateQualityBy3Test() {
+        ItemClass[] items = new ItemClass[] {
+                new Conjured("Conjured", 0, 3),
+        };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        Arrays.stream(app.items).forEach( x ->assertEquals(0, x.quality));
+        Arrays.stream(app.items).forEach( x ->assertEquals(-1, x.sellIn));
+    }
+    @Test
+    void ConjuredPositiveSellInTest() {
+        ItemClass[] items = new ItemClass[] {
+                new Conjured("Conjured", 8, 5),
+        };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        Arrays.stream(app.items).forEach( x ->assertEquals(3, x.quality));
+        Arrays.stream(app.items).forEach( x ->assertEquals(7, x.sellIn));
+    }
+
 }

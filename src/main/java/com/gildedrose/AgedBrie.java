@@ -8,7 +8,7 @@ public class AgedBrie extends ItemClass {
     @Override
     public void updateQuality() {
         if (quality < 50) {
-            quality ++;
+            quality++;
         }
 
     }
@@ -16,8 +16,8 @@ public class AgedBrie extends ItemClass {
     @Override
     public void updateSellIn() {
         super.updateSellIn();
-        if ( sellIn <0 && quality < 50) {
-           quality ++;
+        if (sellIn < 0) {
+            updateQuality();
         }
 
     }
